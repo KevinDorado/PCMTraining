@@ -1,0 +1,43 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+
+    <bean id="entityManagerFactory"
+          class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+        <property name="persistenceUnitName" value="pu"/>
+    </bean>
+
+    <bean id="employeeDao" class="com.pcm.training5.EmployeeDAO" init-method="init">
+        <property name="factory" ref="entityManagerFactory" />
+    </bean>
+
+	 <bean id="payrollDao" class="com.pcm.training5.PayrollDAO" init-method="init">
+        <property name="factory" ref="entityManagerFactory" />
+    </bean>
+    
+     <bean id="employeeDepartmentService" class="com.pcm.service.EmployeeDepartmentService"  scope="singleton"/>
+    
+    <bean id="employeeDepartmentDAO" class="com.pcm.dao.EmployeeDepartmentDAO" init-method="init">
+    	<property name="factory" ref="entityManagerFactory" />
+    </bean>
+    
+    <bean id="employeeLoanDao" class="com.pcm.dao.EmployeeLoanDAO" init-method="init">
+        <property name="factory" ref="entityManagerFactory" />
+    </bean>
+    
+    <bean id="departmentDao" class="com.pcm.dao.DepartmentDAO" init-method="init">
+        <property name="factory" ref="entityManagerFactory" />
+    </bean>
+    
+    <bean id = "loanDAO" class = "com.pcm.dao.LoanDAO" init-method="init">
+    	<property name = "factory" ref="entityManagerFactory" />
+    </bean>
+    
+    <bean id="payrollService" class = "com.pcm.training5.PayrollService" scope="singleton"/>
+    
+     <bean id="employeeLoanService" class = "com.pcm.service.EmployeeLoanService" scope="singleton"/>
+    
+    <bean id="employeeFactory" class = "com.pcm.training5.EmployeeFactory" scope="singleton"/>
+    
+</beans>
