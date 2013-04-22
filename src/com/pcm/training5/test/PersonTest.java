@@ -7,8 +7,8 @@ import org.junit.Test;
 
 public class PersonTest {
 	
-	private static final String FIRST_NAME = "Kelvin";
-	private static final String LAST_NAME = "Te";
+	private static final String FIRST_NAME = "Clark";
+	private static final String LAST_NAME = "Co";
 	private static final String SALARY = "100000";
 	private static final int AGE = 22;
 	private static final String EMPLOYEE_BONUS = "24000";
